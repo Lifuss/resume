@@ -1,6 +1,6 @@
 # Arsen Hryhoriak
 
-> 🌐 <a href="https://lifuss.github.io/resume/" target="_blank">**View Interactive Web Version**</a> | 🖨️ **[PDF Export Guide](#-how-to-export-the-html-resume-to-pdf)**
+> 🌐 <a href="https://lifuss.github.io/resume/" target="_blank">**View Interactive Web Version**</a>
 
 ---
 
