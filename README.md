@@ -107,7 +107,7 @@ _Hospitality and Event Management._
 
 The `index.html` file includes custom CSS tailored for printing. To generate a pixel-perfect, 2-page PDF copy:
 
-1. Open [index.html](./index.html) in **Google Chrome** or **Microsoft Edge**.
+1. Open <a href="https://lifuss.github.io/resume/" target="_blank">**Web Page**</a> in your browser.
 2. Press `Ctrl + P` (Windows) or `Cmd + P` (Mac) to open the print dialog.
 3. Apply the following settings:
    - **Destination:** Save as PDF
