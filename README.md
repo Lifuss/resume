@@ -6,7 +6,7 @@ Welcome to the repository hosting my professional resume and curriculum vitae. T
 
 This repository contains the following resume formats:
 
-1. **[Interactive HTML/CSS Resume (index.html)](https://lifuss.github.io/resume/)**
+1. <a href="https://lifuss.github.io/resume/" target="_blank">**Interactive HTML/CSS Resume (index.html)**</a>
    - Designed with premium typography (Inter & Lora) and a modern, content-first layout.
    - Responsive across mobile, tablet, and desktop screens.
    - Built-in print styles (`@media print`) tailored for a perfect two-page A4 PDF export.
