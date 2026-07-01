@@ -446,6 +446,82 @@
         a {
           border-bottom: none !important;
         }
+
+        /* ATS & Column Alignment Fixes */
+        .footer-grid {
+          grid-template-columns: 1fr !important;
+          gap: 20px !important;
+        }
+
+        .sub-project-header {
+          display: block !important;
+          margin-bottom: 4px !important;
+        }
+
+        .sub-project-tech {
+          display: block !important;
+          margin-top: 2px !important;
+          font-size: 0.8rem !important;
+        }
+      }
+
+      /* PDF Download Mode Styles (mirrors print styles for html2pdf conversion) */
+      body.pdf-mode-active {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-size: 9pt !important;
+        line-height: 1.45 !important;
+      }
+      body.pdf-mode-active .print-btn-container {
+        display: none !important;
+      }
+      body.pdf-mode-active .resume-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 20px !important; /* Keep padding for aesthetic pdf edge spacing */
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      body.pdf-mode-active .section-title {
+        font-size: 11pt !important;
+        margin-bottom: 10px !important;
+      }
+      body.pdf-mode-active section {
+        margin-bottom: 20px !important;
+      }
+      body.pdf-mode-active .experience-list {
+        gap: 18px !important;
+      }
+      body.pdf-mode-active .bullets-list li {
+        font-size: 9pt !important;
+        margin-bottom: 2px !important;
+      }
+      body.pdf-mode-active .experience-item,
+      body.pdf-mode-active .education-item,
+      body.pdf-mode-active .skills-section,
+      body.pdf-mode-active .footer-grid,
+      body.pdf-mode-active .sub-project-item {
+        page-break-inside: avoid !important;
+      }
+      body.pdf-mode-active .sub-projects-section {
+        margin-top: 8px !important;
+        gap: 8px !important;
+      }
+      body.pdf-mode-active a {
+        border-bottom: none !important;
+      }
+      body.pdf-mode-active .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      body.pdf-mode-active .sub-project-header {
+        display: block !important;
+        margin-bottom: 4px !important;
+      }
+      body.pdf-mode-active .sub-project-tech {
+        display: block !important;
+        margin-top: 2px !important;
+        font-size: 0.8rem !important;
       }
     </style>
     <!-- html2pdf library  -->
@@ -485,6 +561,22 @@
           />
         </svg>
         Download PDF
+      </button>
+      <button class="print-btn" onclick="copyMarkdown(this)">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+          />
+        </svg>
+        Copy Markdown
       </button>
     </div>
 
@@ -612,7 +704,7 @@
               <li>
                 Led the full-cycle migration of the backend infrastructure from
                 a legacy Express.js and MongoDB setup to a robust, type-safe
-                **NestJS 11, Prisma 6, and PostgreSQL** environment.
+                <strong>NestJS 11, Prisma 6, and PostgreSQL</strong> environment.
               </li>
               <li>
                 Designed and optimized a PostgreSQL database schema using
@@ -621,7 +713,7 @@
               </li>
               <li>
                 Engineered a transactional order checkout system with Prisma
-                `$transaction` and PostgreSQL `CHECK` constraints, ensuring
+                <code>$transaction</code> and PostgreSQL <code>CHECK</code> constraints, ensuring
                 stock safety and atomic decrementing under heavy concurrent B2B
                 orders.
               </li>
@@ -882,15 +974,8 @@
       function downloadPDF() {
         const element = document.querySelector(".resume-container");
 
-        // Save original styles
-        const originalBorder = element.style.border;
-        const originalBoxShadow = element.style.boxShadow;
-        const originalPadding = element.style.padding;
-
-        // Temporarily adjust layout for PDF generation to ensure perfect fit
-        element.style.border = "none";
-        element.style.boxShadow = "none";
-        element.style.padding = "20px"; // optimize padding size inside pdf page boundaries
+        // Add pdf-mode-active class to body to apply printer-friendly styles
+        document.body.classList.add("pdf-mode-active");
 
         const opt = {
           margin: [0.3, 0.3], // top/bottom, left/right margins in inches
@@ -911,10 +996,47 @@
           .from(element)
           .save()
           .then(() => {
-            // Restore original styling
-            element.style.border = originalBorder;
-            element.style.boxShadow = originalBoxShadow;
-            element.style.padding = originalPadding;
+            // Restore original styling by removing the class
+            document.body.classList.remove("pdf-mode-active");
+          });
+      }
+
+      function copyMarkdown(button) {
+        const originalHTML = button.innerHTML;
+
+        // Try relative path first (works on HTTP/GitHub Pages), fallback to GitHub raw content URL (works on local file:// due to CORS support)
+        fetch("./Arsen_Hryhoriak_Resume.md")
+          .catch(() => {
+            return fetch("https://raw.githubusercontent.com/Lifuss/resume/main/Arsen_Hryhoriak_Resume.md");
+          })
+          .then((response) => {
+            if (!response.ok) throw new Error("Failed to fetch markdown file");
+            return response.text();
+          })
+          .then((text) => {
+            return navigator.clipboard.writeText(text);
+          })
+          .then(() => {
+            button.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Copied!
+            `;
+            button.style.backgroundColor = "var(--accent)";
+            button.style.borderColor = "var(--accent)";
+            setTimeout(() => {
+              button.innerHTML = originalHTML;
+              button.style.backgroundColor = "";
+              button.style.borderColor = "";
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy markdown:", err);
+            button.innerHTML = "Error!";
+            setTimeout(() => {
+              button.innerHTML = originalHTML;
+            }, 2000);
           });
       }
     </script>
