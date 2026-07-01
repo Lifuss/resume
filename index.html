@@ -1,738 +1,922 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arsen Hryhoriak - Full Stack Developer Resume</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --primary: #111827;       /* Deep charcoal */
-      --text: #374151;          /* Elegant dark grey body */
-      --muted: #6b7280;         /* Warm grey for subtext */
-      --accent: #b45309;        /* Sophisticated rust/amber */
-      --accent-hover: #92400e;  /* Darker rust for hover states */
-      --border: #e5e7eb;        /* Light elegant divider line */
-      --bg: #f9fafb;            /* Soft off-white page background */
-      --container-bg: #ffffff;  /* Pure white resume sheet */
-      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arsen Hryhoriak - Full Stack Developer Resume</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      padding: 40px 20px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: var(--transition);
-      border-bottom: 1px dashed var(--muted);
-    }
-
-    a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    /* Resume Container (A4 Sheet Simulation) */
-    .resume-container {
-      max-width: 820px;
-      margin: 0 auto;
-      background: var(--container-bg);
-      padding: 50px 60px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    }
-
-    /* Header Section */
-    .header-section {
-      text-align: left;
-      margin-bottom: 30px;
-    }
-
-    .header-name {
-      font-family: 'Lora', serif;
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: var(--primary);
-      letter-spacing: -0.5px;
-      margin-bottom: 4px;
-    }
-
-    .header-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 16px;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      font-size: 0.85rem;
-      color: var(--muted);
-      align-items: center;
-    }
-
-    .contact-info span {
-      display: flex;
-      align-items: center;
-    }
-
-    .contact-info span:not(:last-child)::after {
-      content: "•";
-      margin-left: 14px;
-      color: #cbd5e1;
-      pointer-events: none;
-    }
-
-    .contact-info svg {
-      width: 14px;
-      height: 14px;
-      margin-right: 5px;
-      color: var(--muted);
-      vertical-align: middle;
-    }
-
-    /* Section Styles */
-    section {
-      margin-bottom: 30px;
-    }
-
-    section:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .section-title {
-      font-family: 'Lora', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 15px;
-    }
-
-    .profile-summary {
-      font-size: 0.925rem;
-      color: var(--text);
-      text-align: justify;
-    }
-
-    /* Technical Skills */
-    .skills-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .skills-row {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 20px;
-      font-size: 0.9rem;
-    }
-
-    .skills-label {
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .skills-value {
-      color: var(--text);
-    }
-
-    /* Work Experience Timeline */
-    .experience-list {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .experience-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 2px;
-    }
-
-    .item-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .item-date {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .item-subheader {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .company-name {
-      font-weight: 600;
-    }
-
-    .company-location {
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    .item-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-bottom: 8px;
-      font-style: italic;
-    }
-
-    .bullets-list {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .bullets-list li {
-      position: relative;
-      padding-left: 16px;
-      font-size: 0.9rem;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .bullets-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .bullets-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    /* Sub-projects list for DevelopsToday */
-    .sub-projects-section {
-      margin-top: 15px;
-      padding-left: 16px;
-      border-left: 2px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .sub-projects-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--muted);
-      letter-spacing: 0.5px;
-    }
-
-    .sub-project-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sub-project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 2px;
-    }
-
-    .sub-project-name {
-      font-weight: 600;
-      font-size: 0.875rem;
-      color: var(--primary);
-    }
-
-    .sub-project-tech {
-      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .sub-project-desc {
-      font-size: 0.85rem;
-      color: var(--text);
-      line-height: 1.45;
-    }
-
-    /* Education Section */
-    .education-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* Footer Grid (Languages and Soft Skills side-by-side) */
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 40px;
-    }
-
-    .lang-item {
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-
-    .lang-item:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Print Button for Browser View */
-    .print-btn-container {
-      max-width: 820px;
-      margin: 0 auto 15px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
-
-    .print-btn {
-      background-color: var(--primary);
-      color: #ffffff;
-      border: 1px solid var(--primary);
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    }
-
-    .print-btn:hover {
-      background-color: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .print-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      body {
-        padding: 10px;
+    <style>
+      :root {
+        --primary: #111827; /* Deep charcoal */
+        --text: #374151; /* Elegant dark grey body */
+        --muted: #6b7280; /* Warm grey for subtext */
+        --accent: #b45309; /* Sophisticated rust/amber */
+        --accent-hover: #92400e; /* Darker rust for hover states */
+        --border: #e5e7eb; /* Light elegant divider line */
+        --bg: #f9fafb; /* Soft off-white page background */
+        --container-bg: #ffffff; /* Pure white resume sheet */
+        --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .resume-container {
-        padding: 30px 20px;
-      }
-      .header-name {
-        font-size: 2rem;
-      }
-      .contact-info span:not(:last-child)::after {
-        display: none;
-      }
-      .contact-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-      .skills-row {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-      .print-btn-container {
-        display: none;
-      }
-    }
 
-    /* Print Stylesheet */
-    @media print {
-      body {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        font-size: 9pt;
-        line-height: 1.45;
+      * {
+        box-sizing: border-box;
+        margin: 0;
         padding: 0;
       }
 
-      .print-btn-container {
-        display: none !important;
-      }
-
-      .resume-container {
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        max-width: 100% !important;
-      }
-
-      .section-title {
-        font-size: 11pt;
-        margin-bottom: 10px;
-      }
-
-      section {
-        margin-bottom: 20px !important;
-      }
-
-      .experience-list {
-        gap: 18px !important;
-      }
-
-      .bullets-list li {
-        font-size: 9pt;
-        margin-bottom: 2px;
-      }
-
-      .experience-item, .education-item, .skills-section, .footer-grid, .sub-project-item {
-        page-break-inside: avoid;
-      }
-
-      .sub-projects-section {
-        margin-top: 8px !important;
-        gap: 8px !important;
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        padding: 40px 20px;
       }
 
       a {
-        border-bottom: none !important;
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition);
+        border-bottom: 1px dashed var(--muted);
       }
-    }
-  </style>
-  <!-- html2pdf library  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-</head>
-<body>
 
-  <!-- Print & Download Buttons for Browser View -->
-  <div class="print-btn-container">
-    <button class="print-btn" onclick="window.print()">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.82l-.24 2.13A2 2 0 008.46 18.2h7.08a2 2 0 001.98-2.25l-.24-2.13M6.72 13.82A2.25 2.25 0 014.5 11.58V8.42A2.25 2.25 0 016.72 6.18h10.56A2.25 2.25 0 0119.5 8.42v3.16a2.25 2.25 0 01-2.22 2.24M6.72 13.82h10.56M12 3v3m0 0l-1.5-1.5M12 6l1.5-1.5" />
-      </svg>
-      Print Resume
-    </button>
-    <button class="print-btn" onclick="downloadPDF()">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-      </svg>
-      Download PDF
-    </button>
-  </div>
+      a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
 
-  <div class="resume-container">
-    
-    <!-- HEADER -->
-    <header class="header-section">
-      <h1 class="header-name">Arsen Hryhoriak</h1>
-      <div class="header-title">Full Stack Developer</div>
-      
-      <div class="contact-info">
-        <span>Chernivtsi, Ukraine</span>
-        <span>
-          <a href="mailto:arsen.hryh@gmail.com">arsen.hryh@gmail.com</a>
-        </span>
-        <span>
-          <a href="https://t.me/lifuss" target="_blank">Telegram</a>
-        </span>
-        <span>
-          <a href="https://github.com/Lifuss" target="_blank">GitHub</a>
-        </span>
-        <span>
-          <a href="https://www.linkedin.com/in/arsen-hryhoriak/" target="_blank">Linkedin</a>
-        </span>
-      </div>
-    </header>
+      /* Resume Container (A4 Sheet Simulation) */
+      .resume-container {
+        max-width: 820px;
+        margin: 0 auto;
+        background: var(--container-bg);
+        padding: 50px 60px;
+        border: 1px solid var(--border);
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
 
-    <!-- PROFESSIONAL SUMMARY -->
-    <section>
-      <h2 class="section-title">Professional Summary</h2>
-      <p class="profile-summary">
-        Results-oriented Full Stack Developer with over 2.5 years of experience building and optimizing web platforms and cross-platform mobile apps. Proven ability to lead critical technical migrations, such as transitioning a complex B2B/B2C e-commerce platform from a legacy Express/MongoDB monolith to a high-performance, containerized NestJS 11 + Prisma 6 + PostgreSQL backend. Experienced in fast-paced outstaffing environments, delivering custom IoT applications, AI-driven platforms featuring Retrieval-Augmented Generation (RAG) and vector search, and medical image processing portals. Dedicated to writing clean, maintainable, type-safe TypeScript code and collaborating effectively in cross-functional, agile teams.
-      </p>
-    </section>
+      /* Header Section */
+      .header-section {
+        text-align: left;
+        margin-bottom: 30px;
+      }
 
-    <!-- TECHNICAL SKILLS -->
-    <section class="skills-section">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skills-row">
-          <span class="skills-label">Languages</span>
-          <span class="skills-value">TypeScript, JavaScript, SQL, HTML5, CSS3</span>
+      .header-name {
+        font-family: "Lora", serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--primary);
+        letter-spacing: -0.5px;
+        margin-bottom: 4px;
+      }
+
+      .header-title {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 16px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        font-size: 0.85rem;
+        color: var(--muted);
+        align-items: center;
+      }
+
+      .contact-info span {
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-info span:not(:last-child)::after {
+        content: "•";
+        margin-left: 14px;
+        color: #cbd5e1;
+        pointer-events: none;
+      }
+
+      .contact-info svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+        color: var(--muted);
+        vertical-align: middle;
+      }
+
+      /* Section Styles */
+      section {
+        margin-bottom: 30px;
+      }
+
+      section:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-family: "Lora", serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 15px;
+      }
+
+      .profile-summary {
+        font-size: 0.925rem;
+        color: var(--text);
+        text-align: justify;
+      }
+
+      /* Technical Skills */
+      .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .skills-row {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 20px;
+        font-size: 0.9rem;
+      }
+
+      .skills-label {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .skills-value {
+        color: var(--text);
+      }
+
+      /* Work Experience Timeline */
+      .experience-list {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .experience-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+      }
+
+      .item-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .item-date {
+        font-size: 0.85rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .item-subheader {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+
+      .company-name {
+        font-weight: 600;
+      }
+
+      .company-location {
+        color: var(--muted);
+        font-weight: 400;
+      }
+
+      .item-desc {
+        font-size: 0.875rem;
+        color: var(--muted);
+        margin-bottom: 8px;
+        font-style: italic;
+      }
+
+      .bullets-list {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .bullets-list li {
+        position: relative;
+        padding-left: 16px;
+        font-size: 0.9rem;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+
+      .bullets-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .bullets-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      /* Sub-projects list for DevelopsToday */
+      .sub-projects-section {
+        margin-top: 15px;
+        padding-left: 16px;
+        border-left: 2px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .sub-projects-title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.5px;
+      }
+
+      .sub-project-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sub-project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+      }
+
+      .sub-project-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--primary);
+      }
+
+      .sub-project-tech {
+        font-family:
+          SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.75rem;
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .sub-project-desc {
+        font-size: 0.85rem;
+        color: var(--text);
+        line-height: 1.45;
+      }
+
+      /* Education Section */
+      .education-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      /* Footer Grid (Languages and Soft Skills side-by-side) */
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px;
+      }
+
+      .lang-item {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+      }
+
+      .lang-item:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Print Button for Browser View */
+      .print-btn-container {
+        max-width: 820px;
+        margin: 0 auto 15px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .print-btn {
+        background-color: var(--primary);
+        color: #ffffff;
+        border: 1px solid var(--primary);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: var(--transition);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      .print-btn:hover {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      .print-btn svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+        .resume-container {
+          padding: 30px 20px;
+        }
+        .header-name {
+          font-size: 2rem;
+        }
+        .contact-info span:not(:last-child)::after {
+          display: none;
+        }
+        .contact-info {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .skills-row {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+        .print-btn-container {
+          display: none;
+        }
+      }
+
+      /* Print Stylesheet */
+      @media print {
+        body {
+          background-color: #ffffff !important;
+          color: #000000 !important;
+          font-size: 9pt;
+          line-height: 1.45;
+          padding: 0;
+        }
+
+        .print-btn-container {
+          display: none !important;
+        }
+
+        .resume-container {
+          border: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          max-width: 100% !important;
+        }
+
+        .section-title {
+          font-size: 11pt;
+          margin-bottom: 10px;
+        }
+
+        section {
+          margin-bottom: 20px !important;
+        }
+
+        .experience-list {
+          gap: 18px !important;
+        }
+
+        .bullets-list li {
+          font-size: 9pt;
+          margin-bottom: 2px;
+        }
+
+        .experience-item,
+        .education-item,
+        .skills-section,
+        .footer-grid,
+        .sub-project-item {
+          page-break-inside: avoid;
+        }
+
+        .sub-projects-section {
+          margin-top: 8px !important;
+          gap: 8px !important;
+        }
+
+        a {
+          border-bottom: none !important;
+        }
+      }
+    </style>
+    <!-- html2pdf library  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  </head>
+  <body>
+    <!-- Print & Download Buttons for Browser View -->
+    <div class="print-btn-container">
+      <button class="print-btn" onclick="window.print()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6.72 13.82l-.24 2.13A2 2 0 008.46 18.2h7.08a2 2 0 001.98-2.25l-.24-2.13M6.72 13.82A2.25 2.25 0 014.5 11.58V8.42A2.25 2.25 0 016.72 6.18h10.56A2.25 2.25 0 0119.5 8.42v3.16a2.25 2.25 0 01-2.22 2.24M6.72 13.82h10.56M12 3v3m0 0l-1.5-1.5M12 6l1.5-1.5"
+          />
+        </svg>
+        Print Resume
+      </button>
+      <button class="print-btn" onclick="downloadPDF()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+          />
+        </svg>
+        Download PDF
+      </button>
+    </div>
+
+    <div class="resume-container">
+      <!-- HEADER -->
+      <header class="header-section">
+        <h1 class="header-name">Arsen Hryhoriak</h1>
+        <div class="header-title">Full Stack Developer</div>
+
+        <div class="contact-info">
+          <span>Chernivtsi, Ukraine</span>
+          <span>
+            <a href="mailto:arsen.hryh@gmail.com">arsen.hryh@gmail.com</a>
+          </span>
+          <span>
+            <a href="https://t.me/lifuss" target="_blank">Telegram</a>
+          </span>
+          <span>
+            <a href="https://github.com/Lifuss" target="_blank">GitHub</a>
+          </span>
+          <span>
+            <a
+              href="https://www.linkedin.com/in/arsen-hryhoriak/"
+              target="_blank"
+              >Linkedin</a
+            >
+          </span>
         </div>
-        <div class="skills-row">
-          <span class="skills-label">Front-end</span>
-          <span class="skills-value">React, Next.js (v16+), React Native (Expo), Redux Toolkit, Zustand, React Query, Tailwind CSS (v4), Styled Components, React Hook Form, Zod</span>
-        </div>
-        <div class="skills-row">
-          <span class="skills-label">Back-end</span>
-          <span class="skills-value">Node.js, NestJS (v11), Hono.js, Express.js, ASP.NET Core</span>
-        </div>
-        <div class="skills-row">
-          <span class="skills-label">Databases & ORMs</span>
-          <span class="skills-value">PostgreSQL, MongoDB, Prisma ORM (v6), Drizzle ORM, Sequelize, Mongoose</span>
-        </div>
-        <div class="skills-row">
-          <span class="skills-label">AI & ML Experience</span>
-          <span class="skills-value">LLM APIs, LangChain, pgvector, OpenAI Embeddings</span>
-        </div>
-        <div class="skills-row">
-          <span class="skills-label">DevOps & Cloud</span>
-          <span class="skills-value">Docker, Docker Compose, Linux VPS (Nginx), PM2, Vercel, Render, Azure, AWS</span>
-        </div>
-      </div>
-    </section>
+      </header>
 
-    <!-- WORK EXPERIENCE -->
-    <section>
-      <h2 class="section-title">Work Experience</h2>
-      <div class="experience-list">
-        
-        <!-- INGCO -->
-        <div class="experience-item">
-          <div class="item-header">
-            <h3 class="item-title">Lead Full Stack Developer</h3>
-            <span class="item-date">May 2024 – Present</span>
+      <!-- PROFESSIONAL SUMMARY -->
+      <section>
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="profile-summary">
+          Results-oriented Full Stack Developer with over 2.5 years of
+          experience building and optimizing web platforms and cross-platform
+          mobile apps. Proven ability to lead critical technical migrations,
+          such as transitioning a complex B2B/B2C e-commerce platform from a
+          legacy Express/MongoDB monolith to a high-performance, containerized
+          NestJS 11 + Prisma 6 + PostgreSQL backend. Experienced in fast-paced
+          outstaffing environments, delivering custom IoT applications,
+          AI-driven platforms featuring Retrieval-Augmented Generation (RAG) and
+          vector search, and medical image processing portals. Dedicated to
+          writing clean, maintainable, type-safe TypeScript code and
+          collaborating effectively in cross-functional, agile teams.
+        </p>
+      </section>
+
+      <!-- TECHNICAL SKILLS -->
+      <section class="skills-section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skills-row">
+            <span class="skills-label">Languages</span>
+            <span class="skills-value"
+              >TypeScript, JavaScript, SQL, HTML5, CSS3</span
+            >
           </div>
-          <div class="item-subheader">
-            <span class="company-name">INGCO Ukraine <span class="company-location">  GitHub: <a href="https://github.com/Lifuss/fe-ingco" target="_blank">fe-ingco</a></span></span>
-            <span class="company-location">Chernivtsi, Ukraine (Part-time / Freelance)</span>
+          <div class="skills-row">
+            <span class="skills-label">Front-end</span>
+            <span class="skills-value"
+              >React, Next.js (v16+), React Native (Expo), Redux Toolkit,
+              Zustand, React Query, Tailwind CSS (v4), Styled Components, React
+              Hook Form, Zod</span
+            >
           </div>
-          <p class="item-desc">Official Ukrainian distributor of INGCO industrial tools, serving retail and wholesale clients</p>
-          <ul class="bullets-list">
-            <li>Led the full-cycle migration of the backend infrastructure from a legacy Express.js and MongoDB setup to a robust, type-safe **NestJS 11, Prisma 6, and PostgreSQL** environment.</li>
-            <li>Designed and optimized a PostgreSQL database schema using snake_case conventions, including a self-referencing category tree structure for dynamic catalogs.</li>
-            <li>Engineered a transactional order checkout system with Prisma `$transaction` and PostgreSQL `CHECK` constraints, ensuring stock safety and atomic decrementing under heavy concurrent B2B orders.</li>
-            <li>Built a modular Next.js 16 (React 19, Redux Toolkit, Tailwind CSS 4, shadcn/ui) frontend hosting distinct workflows for retail buyers (B2C) and verified business partners (B2B wholesale) with custom data grids and Excel exports.</li>
-            <li>Integrated payment and logistics APIs (Monobank exchange rates, Nova Poshta branch finder, SendGrid mailing).</li>
-            <li>Containerized services using Docker & Docker Compose and deployed them onto a Hetzner Linux VPS (Nginx, Certbot SSL) and Vercel.</li>
-          </ul>
-        </div>
-
-        <!-- DevelopsToday -->
-        <div class="experience-item">
-          <div class="item-header">
-            <h3 class="item-title">Full Stack & Mobile Developer (Outstaff)</h3>
-            <span class="item-date">Apr 2025 – Jun 2026</span>
+          <div class="skills-row">
+            <span class="skills-label">Back-end</span>
+            <span class="skills-value"
+              >Node.js, NestJS (v11), Hono.js, Express.js, ASP.NET Core</span
+            >
           </div>
-          <div class="item-subheader">
-            <span class="company-name">DevelopsToday</span>
-            <span class="company-location">Remote</span>
+          <div class="skills-row">
+            <span class="skills-label">Databases & ORMs</span>
+            <span class="skills-value"
+              >PostgreSQL, MongoDB, Prisma ORM (v6), Drizzle ORM, Sequelize,
+              Mongoose</span
+            >
           </div>
-          <p class="item-desc">Top-tier outstaffing agency delivering software solutions for international startups and enterprise clients.</p>
-          <ul class="bullets-list">
-            <li>Worked in a dynamic outstaffing environment with cross-functional global teams, delivering high-impact features under NDA constraints.</li>
-            <li>Collaborated directly with foreign clients, translating product roadmaps into reliable features and clean code.</li>
-          </ul>
-          
-          <div class="sub-projects-section">
-            <span class="sub-projects-title">Key Projects (NDA Compliant):</span>
-            
-            <div class="sub-project-item">
-              <div class="sub-project-header">
-                <span class="sub-project-name">AI-Powered Creator CMS</span>
-                <span class="sub-project-tech">React · Node.js · Hono.js · RAG · pgvector</span>
-              </div>
-              <p class="sub-project-desc">Implemented a CMS allowing content creators to automate fan communication. Integrated OpenAI and Claude APIs with pgvector database using RAG to generate semantic, context-aware responses.</p>
-            </div>
-
-            <div class="sub-project-item">
-              <div class="sub-project-header">
-                <span class="sub-project-name">IoT Energy Management Application</span>
-                <span class="sub-project-tech">React Native · Expo</span>
-              </div>
-              <p class="sub-project-desc">Built interactive mobile dashboard elements for smart splitters and sockets. Created telemetry visualizations for tracking solar panel performance and energy draw in real-time.</p>
-            </div>
-
-            <div class="sub-project-item">
-              <div class="sub-project-header">
-                <span class="sub-project-name">Healthcare & AI Training Portal</span>
-                <span class="sub-project-tech">Next.js · NestJS</span>
-              </div>
-              <p class="sub-project-desc">Co-developed a portal for MRI brain scan visualization, assisting medical researchers with preparing annotated image datasets for AI training models.</p>
-            </div>
-
-            <div class="sub-project-item">
-              <div class="sub-project-header">
-                <span class="sub-project-name">Garment History NFC/QR Proof of Concept</span>
-                <span class="sub-project-tech">Flutter · Supabase · Sanity CMS</span>
-              </div>
-              <p class="sub-project-desc">Designed a mobile POC for garments lifecycle. Scanned embedded NFC and QR codes to track transfer of ownership, repair records, and credit point assignment.</p>
-            </div>
-
-            <div class="sub-project-item">
-              <div class="sub-project-header">
-                <span class="sub-project-name">Women's Health Mobile App Optimization</span>
-                <span class="sub-project-tech">React Native · React Navigation · Redux</span>
-              </div>
-              <p class="sub-project-desc">Refactored legacy navigation routes and global state logic, eliminating primary memory leaks and reducing overall application startup time by 25%.</p>
-            </div>
-
-            <div class="sub-project-item">
-              <div class="sub-project-header">
-                <span class="sub-project-name">Enterprise Veterinary CMS & Form Engine</span>
-                <span class="sub-project-tech">C# .NET · Optimizely</span>
-              </div>
-              <p class="sub-project-desc">Helped migrate complex dynamic form modules and block grids into a headless CMS connecting veterinary clinics.</p>
-            </div>
+          <div class="skills-row">
+            <span class="skills-label">AI & ML Experience</span>
+            <span class="skills-value"
+              >LLM APIs, LangChain, pgvector, OpenAI Embeddings</span
+            >
           </div>
-        </div>
-
-        <!-- Drink Master / Money Guard -->
-        <div class="experience-item">
-          <div class="item-header">
-            <h3 class="item-title">Full Stack Developer</h3>
-            <span class="item-date">2023 – 2024</span>
-          </div>
-          <div class="item-subheader">
-            <span class="company-name">GoIT Portfolio Projects</span>
-            <span class="company-location">Academic & Personal Projects</span>
-          </div>
-          <ul class="bullets-list">
-            <li><strong>Drink Master API (REST Backend):</strong> Created a secure API with Node.js/Express.js and MongoDB. Wrote Swagger/OpenAPI 3.0 documentation, and acted as Scrum Master, hosting standups and managing the Trello backlog.</li>
-            <li><strong>Money Guard (Finance Tracker):</strong> Built a responsive budgeting website with React and Redux, implementing custom styling, charts, and transaction dashboards.</li>
-          </ul>
-        </div>
-
-        <!-- Restaurant Manager -->
-        <div class="experience-item">
-          <div class="item-header">
-            <h3 class="item-title">Restaurant Manager</h3>
-            <span class="item-date">Oct 2021 – May 2022</span>
-          </div>
-          <div class="item-subheader">
-            <span class="company-name">Imperia</span>
-            <span class="company-location">Chernivtsi, Ukraine</span>
-          </div>
-          <ul class="bullets-list">
-            <li>Supervised a service staff of 15+, managed client communication, and resolved high-pressure operational issues.</li>
-            <li>Organized and coordinated a large-scale banquet event hosting 180 guests, showcasing strong planning and crisis management.</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- EDUCATION & FOOTER INFO -->
-    <div class="footer-grid">
-      
-      <!-- EDUCATION -->
-      <section class="education-section">
-        <h2 class="section-title">Education</h2>
-        <div class="education-grid">
-          <div class="education-item">
-            <div class="item-header">
-              <h3 class="item-title" style="font-size: 0.95rem;">Fullstack Developer Certification</h3>
-              <span class="item-date">2023 – 2024</span>
-            </div>
-            <div class="item-subheader" style="font-size: 0.85rem; margin-bottom: 0;">
-              <span class="company-name">IT School GoIT</span>
-            </div>
-          </div>
-          <div class="education-item">
-            <div class="item-header">
-              <h3 class="item-title" style="font-size: 0.95rem;">Master’s Degree in Management</h3>
-              <span class="item-date">2016 – 2021</span>
-            </div>
-            <div class="item-subheader" style="font-size: 0.85rem; margin-bottom: 0;">
-              <span class="company-name">Chernivtsi Trade and Economics Institute</span>
-            </div>
+          <div class="skills-row">
+            <span class="skills-label">DevOps & Cloud</span>
+            <span class="skills-value"
+              >Docker, Docker Compose, Linux VPS (Nginx), PM2, Vercel, Render,
+              Azure, AWS</span
+            >
           </div>
         </div>
       </section>
 
-      <!-- LANGUAGES & SOFT SKILLS -->
-      <div>
-        <section>
-          <h2 class="section-title">Languages</h2>
-          <div class="lang-item"><strong>Ukrainian:</strong> Native</div>
-          <div class="lang-item"><strong>English:</strong> Upper-Intermediate (B2+) — professional working proficiency</div>
-        </section>
-        
-        <section style="margin-top: 15px; margin-bottom: 0;">
-          <h2 class="section-title">Soft Skills</h2>
-          <ul class="bullets-list">
-            <li>Agile / Scrum methodology</li>
-            <li>Client communication & Outstaff collab</li>
-            <li>Analytical thinking & Problem solving</li>
-            <li>Adaptability & Quick learning</li>
-          </ul>
-        </section>
-      </div>
+      <!-- WORK EXPERIENCE -->
+      <section>
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-list">
+          <!-- INGCO -->
+          <div class="experience-item">
+            <div class="item-header">
+              <h3 class="item-title">Full Stack Developer</h3>
+              <span class="item-date">May 2024 – Present</span>
+            </div>
+            <div class="item-subheader">
+              <span class="company-name"
+                >INGCO Ukraine
+                <span class="company-location">
+                  GitHub:
+                  <a href="https://github.com/Lifuss/fe-ingco" target="_blank"
+                    >fe-ingco</a
+                  ></span
+                ></span
+              >
+              <span class="company-location"
+                >Chernivtsi, Ukraine (Part-time / Freelance)</span
+              >
+            </div>
+            <p class="item-desc">
+              Official Ukrainian distributor of INGCO industrial tools, serving
+              retail and wholesale clients
+            </p>
+            <ul class="bullets-list">
+              <li>
+                Led the full-cycle migration of the backend infrastructure from
+                a legacy Express.js and MongoDB setup to a robust, type-safe
+                **NestJS 11, Prisma 6, and PostgreSQL** environment.
+              </li>
+              <li>
+                Designed and optimized a PostgreSQL database schema using
+                snake_case conventions, including a self-referencing category
+                tree structure for dynamic catalogs.
+              </li>
+              <li>
+                Engineered a transactional order checkout system with Prisma
+                `$transaction` and PostgreSQL `CHECK` constraints, ensuring
+                stock safety and atomic decrementing under heavy concurrent B2B
+                orders.
+              </li>
+              <li>
+                Built a modular Next.js 16 (React 19, Redux Toolkit, Tailwind
+                CSS 4, shadcn/ui) frontend hosting distinct workflows for retail
+                buyers (B2C) and verified business partners (B2B wholesale) with
+                custom data grids and Excel exports.
+              </li>
+              <li>
+                Integrated payment and logistics APIs (Monobank exchange rates,
+                Nova Poshta branch finder, SendGrid mailing).
+              </li>
+              <li>
+                Containerized services using Docker & Docker Compose and
+                deployed them onto a Hetzner Linux VPS (Nginx, Certbot SSL) and
+                Vercel.
+              </li>
+            </ul>
+          </div>
 
+          <!-- DevelopsToday -->
+          <div class="experience-item">
+            <div class="item-header">
+              <h3 class="item-title">
+                Full Stack & Mobile Developer (Outstaff)
+              </h3>
+              <span class="item-date">Apr 2025 – Jun 2026</span>
+            </div>
+            <div class="item-subheader">
+              <span class="company-name">DevelopsToday</span>
+              <span class="company-location">Remote</span>
+            </div>
+            <p class="item-desc">
+              Top-tier outstaffing agency delivering software solutions for
+              international startups and enterprise clients.
+            </p>
+            <ul class="bullets-list">
+              <li>
+                Worked in a dynamic outstaffing environment with
+                cross-functional global teams, delivering high-impact features
+                under NDA constraints.
+              </li>
+              <li>
+                Collaborated directly with foreign clients, translating product
+                roadmaps into reliable features and clean code.
+              </li>
+            </ul>
+
+            <div class="sub-projects-section">
+              <span class="sub-projects-title"
+                >Key Projects (NDA Compliant):</span
+              >
+
+              <div class="sub-project-item">
+                <div class="sub-project-header">
+                  <span class="sub-project-name">AI-Powered Creator CMS</span>
+                  <span class="sub-project-tech"
+                    >React · Node.js · Hono.js · RAG · pgvector</span
+                  >
+                </div>
+                <p class="sub-project-desc">
+                  Implemented a CMS allowing content creators to automate fan
+                  communication. Integrated OpenAI and Claude APIs with pgvector
+                  database using RAG to generate semantic, context-aware
+                  responses.
+                </p>
+              </div>
+
+              <div class="sub-project-item">
+                <div class="sub-project-header">
+                  <span class="sub-project-name"
+                    >IoT Energy Management Application</span
+                  >
+                  <span class="sub-project-tech">React Native · Expo</span>
+                </div>
+                <p class="sub-project-desc">
+                  Built interactive mobile dashboard elements for smart
+                  splitters and sockets. Created telemetry visualizations for
+                  tracking solar panel performance and energy draw in real-time.
+                </p>
+              </div>
+
+              <div class="sub-project-item">
+                <div class="sub-project-header">
+                  <span class="sub-project-name"
+                    >Healthcare & AI Training Portal</span
+                  >
+                  <span class="sub-project-tech">Next.js · NestJS</span>
+                </div>
+                <p class="sub-project-desc">
+                  Co-developed a portal for MRI brain scan visualization,
+                  assisting medical researchers with preparing annotated image
+                  datasets for AI training models.
+                </p>
+              </div>
+
+              <div class="sub-project-item">
+                <div class="sub-project-header">
+                  <span class="sub-project-name"
+                    >Garment History NFC/QR Proof of Concept</span
+                  >
+                  <span class="sub-project-tech"
+                    >Flutter · Supabase · Sanity CMS</span
+                  >
+                </div>
+                <p class="sub-project-desc">
+                  Designed a mobile POC for garments lifecycle. Scanned embedded
+                  NFC and QR codes to track transfer of ownership, repair
+                  records, and credit point assignment.
+                </p>
+              </div>
+
+              <div class="sub-project-item">
+                <div class="sub-project-header">
+                  <span class="sub-project-name"
+                    >Women's Health Mobile App Optimization</span
+                  >
+                  <span class="sub-project-tech"
+                    >React Native · React Navigation · Redux</span
+                  >
+                </div>
+                <p class="sub-project-desc">
+                  Refactored legacy navigation routes and global state logic,
+                  eliminating primary memory leaks and reducing overall
+                  application startup time by 25%.
+                </p>
+              </div>
+
+              <div class="sub-project-item">
+                <div class="sub-project-header">
+                  <span class="sub-project-name"
+                    >Enterprise Veterinary CMS & Form Engine</span
+                  >
+                  <span class="sub-project-tech">C# .NET · Optimizely</span>
+                </div>
+                <p class="sub-project-desc">
+                  Helped migrate complex dynamic form modules and block grids
+                  into a headless CMS connecting veterinary clinics.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drink Master / Money Guard -->
+          <div class="experience-item">
+            <div class="item-header">
+              <h3 class="item-title">Full Stack Developer</h3>
+              <span class="item-date">2023 – 2024</span>
+            </div>
+            <div class="item-subheader">
+              <span class="company-name">GoIT Portfolio Projects</span>
+              <span class="company-location">Academic & Personal Projects</span>
+            </div>
+            <ul class="bullets-list">
+              <li>
+                <strong>Drink Master API (REST Backend):</strong> Created a
+                secure API with Node.js/Express.js and MongoDB. Wrote
+                Swagger/OpenAPI 3.0 documentation, and acted as Scrum Master,
+                hosting standups and managing the Trello backlog.
+              </li>
+              <li>
+                <strong>Money Guard (Finance Tracker):</strong> Built a
+                responsive budgeting website with React and Redux, implementing
+                custom styling, charts, and transaction dashboards.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Restaurant Manager -->
+          <div class="experience-item">
+            <div class="item-header">
+              <h3 class="item-title">Restaurant Manager</h3>
+              <span class="item-date">Oct 2021 – May 2022</span>
+            </div>
+            <div class="item-subheader">
+              <span class="company-name">Imperia</span>
+              <span class="company-location">Chernivtsi, Ukraine</span>
+            </div>
+            <ul class="bullets-list">
+              <li>
+                Supervised a service staff of 15+, managed client communication,
+                and resolved high-pressure operational issues.
+              </li>
+              <li>
+                Organized and coordinated a large-scale banquet event hosting
+                180 guests, showcasing strong planning and crisis management.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION & FOOTER INFO -->
+      <div class="footer-grid">
+        <!-- EDUCATION -->
+        <section class="education-section">
+          <h2 class="section-title">Education</h2>
+          <div class="education-grid">
+            <div class="education-item">
+              <div class="item-header">
+                <h3 class="item-title" style="font-size: 0.95rem">
+                  Fullstack Developer Certification
+                </h3>
+                <span class="item-date">2023 – 2024</span>
+              </div>
+              <div
+                class="item-subheader"
+                style="font-size: 0.85rem; margin-bottom: 0"
+              >
+                <span class="company-name">IT School GoIT</span>
+              </div>
+            </div>
+            <div class="education-item">
+              <div class="item-header">
+                <h3 class="item-title" style="font-size: 0.95rem">
+                  Master’s Degree in Management
+                </h3>
+                <span class="item-date">2016 – 2021</span>
+              </div>
+              <div
+                class="item-subheader"
+                style="font-size: 0.85rem; margin-bottom: 0"
+              >
+                <span class="company-name"
+                  >Chernivtsi Trade and Economics Institute</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LANGUAGES & SOFT SKILLS -->
+        <div>
+          <section>
+            <h2 class="section-title">Languages</h2>
+            <div class="lang-item"><strong>Ukrainian:</strong> Native</div>
+            <div class="lang-item">
+              <strong>English:</strong> Upper-Intermediate (B2+) — professional
+              working proficiency
+            </div>
+          </section>
+
+          <section style="margin-top: 15px; margin-bottom: 0">
+            <h2 class="section-title">Soft Skills</h2>
+            <ul class="bullets-list">
+              <li>Agile / Scrum methodology</li>
+              <li>Client communication & Outstaff collab</li>
+              <li>Analytical thinking & Problem solving</li>
+              <li>Adaptability & Quick learning</li>
+            </ul>
+          </section>
+        </div>
+      </div>
     </div>
 
-  </div>
+    <script>
+      function downloadPDF() {
+        const element = document.querySelector(".resume-container");
 
-  <script>
-    function downloadPDF() {
-      const element = document.querySelector('.resume-container');
-      
-      // Save original styles
-      const originalBorder = element.style.border;
-      const originalBoxShadow = element.style.boxShadow;
-      const originalPadding = element.style.padding;
-      
-      // Temporarily adjust layout for PDF generation to ensure perfect fit
-      element.style.border = 'none';
-      element.style.boxShadow = 'none';
-      element.style.padding = '20px'; // optimize padding size inside pdf page boundaries
-      
-      const opt = {
-        margin:       [0.3, 0.3], // top/bottom, left/right margins in inches
-        filename:     'Arsen_Hryhoriak_Resume.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2.5, useCORS: false, allowTaint: true, letterRendering: true },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['css', 'legacy'] }
-      };
-      
-      html2pdf().set(opt).from(element).save().then(() => {
-        // Restore original styling
-        element.style.border = originalBorder;
-        element.style.boxShadow = originalBoxShadow;
-        element.style.padding = originalPadding;
-      });
-    }
-  </script>
-</body>
+        // Save original styles
+        const originalBorder = element.style.border;
+        const originalBoxShadow = element.style.boxShadow;
+        const originalPadding = element.style.padding;
+
+        // Temporarily adjust layout for PDF generation to ensure perfect fit
+        element.style.border = "none";
+        element.style.boxShadow = "none";
+        element.style.padding = "20px"; // optimize padding size inside pdf page boundaries
+
+        const opt = {
+          margin: [0.3, 0.3], // top/bottom, left/right margins in inches
+          filename: "Arsen_Hryhoriak_Resume.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: {
+            scale: 2.5,
+            useCORS: false,
+            allowTaint: true,
+            letterRendering: true,
+          },
+          jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+          pagebreak: { mode: ["css", "legacy"] },
+        };
+
+        html2pdf()
+          .set(opt)
+          .from(element)
+          .save()
+          .then(() => {
+            // Restore original styling
+            element.style.border = originalBorder;
+            element.style.boxShadow = originalBoxShadow;
+            element.style.padding = originalPadding;
+          });
+      }
+    </script>
+  </body>
 </html>

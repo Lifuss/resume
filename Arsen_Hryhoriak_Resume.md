@@ -33,7 +33,7 @@ Results-driven Full Stack Developer with 2.5+ years of commercial and production
 
 ## Work Experience
 
-### **INGCO Ukraine (ingcoua.com.ua)** | **Lead Full Stack Developer**
+### **INGCO Ukraine (ingcoua.com.ua)** | **Full Stack Developer**
 
 _May 2024 – Present (Part-time / Freelance)_
 _Official Ukrainian distributor of INGCO industrial tools, serving retail and wholesale clients._
@@ -66,7 +66,7 @@ Delivered high-quality features and Proof of Concepts (POC) under strict NDA con
 
 ---
 
-### **Drink Master API & Money Guard** | **Full Stack Developer / Team Lead**
+### **Drink Master API & Money Guard** | **Full Stack Developer**
 
 _2023 – 2024 (Academic & Personal Projects)_
 
