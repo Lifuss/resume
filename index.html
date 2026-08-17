@@ -788,16 +788,15 @@
         <h2 class="section-title">Professional Summary</h2>
         <p class="profile-summary">
           Results-oriented Full Stack Developer with over 2.5 years of
-          experience building and optimizing web platforms and cross-platform
-          mobile apps. Proven ability to lead critical technical migrations,
-          such as transitioning a complex B2B/B2C e-commerce platform from a
-          legacy Express/MongoDB monolith to a high-performance, containerized
-          NestJS 11 + Prisma 6 + PostgreSQL backend. Experienced in fast-paced
-          outstaffing environments, delivering custom IoT applications,
-          AI-driven platforms featuring Retrieval-Augmented Generation (RAG) and
-          vector search, and medical image processing portals. Dedicated to
-          writing clean, maintainable, type-safe TypeScript code and
-          collaborating effectively in cross-functional, agile teams.
+          commercial experience specializing in the modern TypeScript ecosystem
+          with a strong focus on backend architecture, data integrity, and
+          autonomous end-to-end feature delivery. Proven track record of leading
+          critical system migrations (transitioning legacy Express/MongoDB
+          monoliths to structured NestJS/PostgreSQL/Docker environments),
+          implementing transactional database safety, and developing AI-powered
+          CMS modules (RAG/vector search) alongside real-time IoT mobile
+          applications. Dedicated to engineering clean, type-safe, and highly
+          maintainable software.
         </p>
       </section>
 
@@ -812,17 +811,18 @@
             >
           </div>
           <div class="skills-row">
-            <span class="skills-label">Front-end</span>
+            <span class="skills-label">Back-end & Arch</span>
             <span class="skills-value"
-              >React, Next.js (v16+), React Native (Expo), Redux Toolkit,
-              Zustand, React Query, Tailwind CSS (v4), Styled Components, React
-              Hook Form, Zod</span
+              >Node.js, NestJS (v11), Hono.js, Express.js, ASP.NET Core, RESTful
+              APIs, Transaction Safety (ACID), DB Architecture</span
             >
           </div>
           <div class="skills-row">
-            <span class="skills-label">Back-end</span>
+            <span class="skills-label">Front-end & Mobile</span>
             <span class="skills-value"
-              >Node.js, NestJS (v11), Hono.js, Express.js, ASP.NET Core</span
+              >React, Next.js (v16+), React Native (Expo), Redux Toolkit,
+              Zustand, React Query, React Hook Form, Zod, Tailwind CSS (v4),
+              shadcn/ui</span
             >
           </div>
           <div class="skills-row">
@@ -833,16 +833,17 @@
             >
           </div>
           <div class="skills-row">
-            <span class="skills-label">AI & ML Experience</span>
+            <span class="skills-label">AI & Integrations</span>
             <span class="skills-value"
-              >LLM APIs, LangChain, pgvector, OpenAI Embeddings</span
+              >OpenAI / Claude APIs, LangChain, pgvector (RAG), Stripe, Monobank,
+              Nova Poshta, SendGrid</span
             >
           </div>
           <div class="skills-row">
             <span class="skills-label">DevOps & Cloud</span>
             <span class="skills-value"
               >Docker, Docker Compose, Linux VPS (Nginx), PM2, Vercel, Render,
-              Azure, AWS</span
+              CI/CD</span
             >
           </div>
         </div>
@@ -852,65 +853,6 @@
       <section>
         <h2 class="section-title">Work Experience</h2>
         <div class="experience-list">
-          <!-- INGCO -->
-          <div class="experience-item">
-            <div class="item-header">
-              <h3 class="item-title">Full Stack Developer</h3>
-              <span class="item-date">May 2024 – Present</span>
-            </div>
-            <div class="item-subheader">
-              <span class="company-name"
-                >INGCO Ukraine
-                <span class="company-location">
-                  GitHub:
-                  <a href="https://github.com/Lifuss/fe-ingco" target="_blank"
-                    >fe-ingco</a
-                  ></span
-                ></span
-              >
-              <span class="company-location"
-                >Chernivtsi, Ukraine (Part-time / Freelance)</span
-              >
-            </div>
-            <p class="item-desc">
-              Official Ukrainian distributor of INGCO industrial tools, serving
-              retail and wholesale clients
-            </p>
-            <ul class="bullets-list">
-              <li>
-                Led the full-cycle migration of the backend infrastructure from
-                a legacy Express.js and MongoDB setup to a robust, type-safe
-                <strong>NestJS 11, Prisma 6, and PostgreSQL</strong> environment.
-              </li>
-              <li>
-                Designed and optimized a PostgreSQL database schema using
-                snake_case conventions, including a self-referencing category
-                tree structure for dynamic catalogs.
-              </li>
-              <li>
-                Engineered a transactional order checkout system with Prisma
-                <code>$transaction</code> and PostgreSQL <code>CHECK</code> constraints, ensuring
-                stock safety and atomic decrementing under heavy concurrent B2B
-                orders.
-              </li>
-              <li>
-                Built a modular Next.js 16 (React 19, Redux Toolkit, Tailwind
-                CSS 4, shadcn/ui) frontend hosting distinct workflows for retail
-                buyers (B2C) and verified business partners (B2B wholesale) with
-                custom data grids and Excel exports.
-              </li>
-              <li>
-                Integrated payment and logistics APIs (Monobank exchange rates,
-                Nova Poshta branch finder, SendGrid mailing).
-              </li>
-              <li>
-                Containerized services using Docker & Docker Compose and
-                deployed them onto a Hetzner Linux VPS (Nginx, Certbot SSL) and
-                Vercel.
-              </li>
-            </ul>
-          </div>
-
           <!-- DevelopsToday -->
           <div class="experience-item">
             <div class="item-header">
@@ -1032,6 +974,65 @@
                 </p>
               </div>
             </div>
+          </div>
+
+          <!-- INGCO -->
+          <div class="experience-item">
+            <div class="item-header">
+              <h3 class="item-title">Full Stack Developer</h3>
+              <span class="item-date">May 2024 – Present</span>
+            </div>
+            <div class="item-subheader">
+              <span class="company-name"
+                >INGCO Ukraine
+                <span class="company-location">
+                  GitHub:
+                  <a href="https://github.com/Lifuss/fe-ingco" target="_blank"
+                    >fe-ingco</a
+                  ></span
+                ></span
+              >
+              <span class="company-location"
+                >Chernivtsi, Ukraine (Part-time / Maintenance)</span
+              >
+            </div>
+            <p class="item-desc">
+              Official Ukrainian distributor of INGCO industrial tools, serving
+              retail and wholesale clients
+            </p>
+            <ul class="bullets-list">
+              <li>
+                Led the full-cycle migration of the backend infrastructure from
+                a legacy Express.js and MongoDB setup to a robust, type-safe
+                <strong>NestJS 11, Prisma 6, and PostgreSQL</strong> environment.
+              </li>
+              <li>
+                Designed and optimized a PostgreSQL database schema using
+                snake_case conventions, including a self-referencing category
+                tree structure for dynamic catalogs.
+              </li>
+              <li>
+                Engineered a transactional order checkout system with Prisma
+                <code>$transaction</code> and PostgreSQL <code>CHECK</code> constraints, ensuring
+                stock safety and atomic decrementing under heavy concurrent B2B
+                orders.
+              </li>
+              <li>
+                Built a modular Next.js 16 (React 19, Redux Toolkit, Tailwind
+                CSS 4, shadcn/ui) frontend hosting distinct workflows for retail
+                buyers (B2C) and verified business partners (B2B wholesale) with
+                custom data grids and Excel exports.
+              </li>
+              <li>
+                Integrated payment and logistics APIs (Monobank exchange rates,
+                Nova Poshta branch finder, SendGrid mailing).
+              </li>
+              <li>
+                Containerized services using Docker & Docker Compose and
+                deployed them onto a Hetzner Linux VPS (Nginx, Certbot SSL) and
+                Vercel.
+              </li>
+            </ul>
           </div>
 
           <!-- Drink Master / Money Guard -->

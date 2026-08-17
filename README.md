@@ -16,39 +16,22 @@
 
 ## Professional Summary
 
-Results-driven Full Stack Developer with 2.5+ years of commercial and production experience specializing in the modern TypeScript ecosystem. Proven track record of architecting, migrating, and scaling high-traffic web applications and cross-platform mobile apps. Key achievements include leading a complete database and framework migration of an enterprise e-commerce system (from Express/MongoDB to NestJS/PostgreSQL/Docker) and developing AI-powered CMS modules (RAG/vector search) and real-time IoT dashboards in an agile outstaff setting. Highly adaptable, communicative, and skilled at translating complex business requirements into clean, performant, and type-safe code.
+Results-driven Full Stack Developer with 2.5+ years of commercial experience specializing in the modern TypeScript ecosystem with an emphasis on robust backend architecture, data integrity, and autonomous end-to-end feature delivery. Proven track record of leading critical system migrations (transitioning legacy Express/MongoDB monoliths to structured NestJS/PostgreSQL/Docker environments), implementing transactional database safety, and developing AI-powered CMS modules (RAG/vector search) alongside real-time IoT mobile applications. Highly adaptable, communicative, and focused on engineering clean, type-safe, and maintainable systems.
 
 ---
 
 ## Core Skills
 
 - **Languages:** TypeScript, JavaScript, SQL, HTML5, CSS3 / Sass
-- **Front-end:** React, Next.js (App Router, v16+), React Native (Expo), Flutter (Basic)
-- **Back-end:** Node.js, NestJS (v11), Hono.js, Express.js, ASP.NET Core
-- **State Management & Forms:** Redux Toolkit, React Query, Zustand, React Hook Form, Zod, Formik
-- **Styling & UI:** Tailwind CSS (v4), Styled Components, CSS Modules, Material UI, shadcn/ui
+- **Back-end & Architecture:** Node.js, NestJS (v11), Hono.js, Express.js, ASP.NET Core, RESTful API Design, Transaction Safety (ACID), Relational DB Design, Modular Architecture
+- **Front-end & Mobile:** React, Next.js (App Router, v16+), React Native (Expo), Redux Toolkit, React Query, Zustand, React Hook Form, Zod, Tailwind CSS (v4), shadcn/ui, Flutter (Basic)
 - **Databases & ORMs:** PostgreSQL, MongoDB, Prisma ORM (v6), Drizzle ORM, Sequelize, Mongoose
-- **AI / ML Integration:** OpenAI API (GPTs), Anthropic (Claude), Google Gemini, LangChain, Vector Databases (pgvector), Embeddings
-- **DevOps & Cloud:** Docker, Docker Compose, VPS (Linux, Nginx, PM2), Vercel, Render, AWS, Azure, CI/CD (GitHub Actions, GitLab CI)
-- **API Architectures:** REST, WebSockets (Socket.io), GraphQL (Basic)
-- **Third-Party Integrations:** Monobank API (Currency), Nova Poshta API (Logistics), Stripe, LiqPay, SendGrid, RevenueCat, Superwall, Google Maps, Klaviyo, PostHog (A/B testing, Analytics), Amplitude, Google Analytics
+- **AI & Integrations:** OpenAI API, Anthropic (Claude), LangChain, Vector Databases (pgvector), Embeddings, Third-Party APIs (Monobank, Nova Poshta, Stripe, SendGrid)
+- **DevOps & Cloud:** Docker, Docker Compose, VPS (Linux, Nginx, PM2), Vercel, Render, CI/CD (GitHub Actions)
 
 ---
 
 ## Work Experience
-
-### **INGCO Ukraine (ingcoua.com.ua)** | **Lead Full Stack Developer**
-
-_May 2024 – Present (Part-time / Freelance)_
-_Official Ukrainian distributor of INGCO industrial tools, serving retail and wholesale clients._
-
-- **Legacy Migration:** Spearheaded the complete re-architecture of the enterprise platform, migrating a legacy Express.js/MongoDB monolith to a high-performance **NestJS 11 + Prisma 6 + PostgreSQL** backend.
-- **Database & Transaction Safety:** Designed the PostgreSQL schema using snake_case mapping, implemented a self-referencing category tree, and built a bulletproof transactional order checkout process inside a Prisma `$transaction` with atomic stock decrement and DB-level `CHECK` constraints to prevent negative stock under high concurrency.
-- **Multi-Segment Frontend:** Engineered a responsive, highly optimized Next.js 16 (React 19, Redux Toolkit, Tailwind CSS 4, shadcn/ui) frontend featuring separate, tailored user experiences: B2C retail catalog, verified B2B wholesale (with density-grid layouts and Excel bulk exports), and a comprehensive CRM Admin Dashboard.
-- **Integrations:** Integrated Monobank API for live currency exchange price calculations, Nova Poshta API for automated shipping branch selection, and SendGrid for transactional customer notifications.
-- **Deployment & DevOps:** Configured Docker/Docker Compose containerization for the PostgreSQL and NestJS services, deploying them on Hetzner VPS (Linux, Nginx reverse proxy, SSL), while deploying the Next.js frontend to Vercel, achieving 95+ Lighthouse performance scores.
-
----
 
 ### **DevelopsToday** | **Full Stack / Mobile Developer**
 
@@ -67,6 +50,19 @@ Delivered high-quality features and Proof of Concepts (POC) under strict NDA con
 - **Enterprise Veterinary CMS Migration:** Assisted in a large-scale migration of dynamic forms and block editors to an Optimizely headless CMS on a C# .NET stack for a major veterinary network.
 - **Women's Health Mobile App:** Refactored legacy navigation (React Navigation) and global state (Redux) on a high-traffic React Native app, resolving severe memory leaks and reducing app startup time by 25%.
 - **Internal Sales Dashboard:** Optimized a server-rendered Next.js dashboard for sales departments, refactoring API queries to reduce server response latency.
+
+---
+
+### **INGCO Ukraine (ingcoua.com.ua)** | **Lead Full Stack Developer**
+
+_May 2024 – Present (Part-time / Maintenance)_
+_Official Ukrainian distributor of INGCO industrial tools, serving retail and wholesale clients._
+
+- **Legacy Migration:** Spearheaded the complete re-architecture of the enterprise platform, migrating a legacy Express.js/MongoDB monolith to a high-performance **NestJS 11 + Prisma 6 + PostgreSQL** backend.
+- **Database & Transaction Safety:** Designed the PostgreSQL schema using snake_case mapping, implemented a self-referencing category tree, and built a bulletproof transactional order checkout process inside a Prisma `$transaction` with atomic stock decrement and DB-level `CHECK` constraints to prevent negative stock under high concurrency.
+- **Multi-Segment Frontend:** Engineered a responsive, highly optimized Next.js 16 (React 19, Redux Toolkit, Tailwind CSS 4, shadcn/ui) frontend featuring separate, tailored user experiences: B2C retail catalog, verified B2B wholesale (with density-grid layouts and Excel bulk exports), and a comprehensive CRM Admin Dashboard.
+- **Integrations:** Integrated Monobank API for live currency exchange price calculations, Nova Poshta API for automated shipping branch selection, and SendGrid for transactional customer notifications.
+- **Deployment & DevOps:** Configured Docker/Docker Compose containerization for the PostgreSQL and NestJS services, deploying them on Hetzner VPS (Linux, Nginx reverse proxy, SSL), while deploying the Next.js frontend to Vercel, achieving 95+ Lighthouse performance scores.
 
 ---
 
