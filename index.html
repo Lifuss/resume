@@ -665,6 +665,8 @@
         .section-title {
           font-size: 11pt;
           margin-bottom: 10px;
+          break-after: avoid;
+          page-break-after: avoid;
         }
 
         section {
@@ -680,7 +682,14 @@
           margin-bottom: 2px;
         }
 
-        .experience-item,
+        /* Allow large experience containers to flow while keeping individual units intact */
+        .experience-item {
+          break-inside: auto;
+          page-break-inside: auto;
+        }
+
+        .item-header,
+        .item-subheader,
         .education-item,
         .skills-section,
         .footer-grid,
@@ -1157,38 +1166,38 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h3 id="pdfModalTitle" class="pdf-modal-title">Експорт векторного PDF</h3>
+            <h3 id="pdfModalTitle" class="pdf-modal-title">Export Vector PDF</h3>
           </div>
-          <button class="pdf-modal-close" onclick="closePDFModal()" aria-label="Закрити">✕</button>
+          <button class="pdf-modal-close" onclick="closePDFModal()" aria-label="Close">✕</button>
         </div>
         <div class="pdf-modal-body">
           <p class="pdf-modal-subtitle">
-            Щоб отримати <strong>векторний PDF з активними посиланнями та живим текстом (для ATS)</strong>, у вікні збереження браузера:
+            To get a <strong>vector PDF with clickable links and selectable text (ATS-friendly)</strong>, configure your browser print dialog:
           </p>
           <div class="pdf-modal-steps">
             <div class="pdf-modal-step">
               <span class="pdf-step-num">1</span>
               <div class="pdf-step-content">
-                <strong>Призначення (Destination):</strong>
-                <div>Оберіть <code>Зберегти як PDF</code> (Save as PDF)<br><em>(Не обирайте «Microsoft Print to PDF»)</em></div>
+                <strong>Destination:</strong>
+                <div>Select <code>Save as PDF</code><br><em>(Avoid "Microsoft Print to PDF" to preserve live links)</em></div>
               </div>
             </div>
             <div class="pdf-modal-step">
               <span class="pdf-step-num">2</span>
               <div class="pdf-step-content">
-                <strong>Додаткові налаштування:</strong>
-                <div>Зніміть <code>Колонтитули</code> та увімкніть <code>Фонова графіка</code>.</div>
+                <strong>More settings / Options:</strong>
+                <div>Uncheck <code>Headers and footers</code> and check <code>Background graphics</code>.</div>
               </div>
             </div>
           </div>
         </div>
         <div class="pdf-modal-footer">
-          <button class="modal-btn modal-btn-secondary" onclick="closePDFModal()">Скасувати</button>
+          <button class="modal-btn modal-btn-secondary" onclick="closePDFModal()">Cancel</button>
           <button class="modal-btn modal-btn-primary" onclick="proceedToPrint()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
             </svg>
-            Продовжити до збереження
+            Continue to Print
           </button>
         </div>
       </div>
