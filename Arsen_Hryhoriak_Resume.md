@@ -71,16 +71,6 @@ _2023 – 2024 (Academic & Personal Projects)_
 
 ---
 
-### **Imperia** | **Restaurant Manager**
-
-_October 2021 – May 2022_
-_Hospitality and Event Management._
-
-- Managed a team of 15+ staff, handled inventory, resolved customer disputes, and successfully planned and executed large-scale banquets (up to 180 guests).
-- _Key Skills gained:_ Leadership under pressure, client communication, crisis resolution, and team-building.
-
----
-
 ## Education
 
 - **IT School GoIT** (2023 – 2024) | Fullstack Developer Certification
