@@ -23,7 +23,7 @@ Results-driven Full Stack Developer with 2.5+ years of commercial experience spe
 ## Core Skills
 
 - **Languages:** TypeScript, JavaScript, SQL, HTML5, CSS3 / Sass
-- **Back-end & Architecture:** Node.js, NestJS (v11), Hono.js, Express.js, ASP.NET Core, RESTful API Design, Transaction Safety (ACID), Relational DB Design, Modular Architecture
+- **Back-end & Architecture:** Node.js, NestJS (v11), Hono.js, Express.js, RESTful API Design, Transaction Safety (ACID), Relational DB Design, Modular Architecture
 - **Front-end & Mobile:** React, Next.js (App Router, v16+), React Native (Expo), Redux Toolkit, React Query, Zustand, React Hook Form, Zod, Tailwind CSS (v4), shadcn/ui, Flutter (Basic)
 - **Databases & ORMs:** PostgreSQL, MongoDB, Prisma ORM (v6), Drizzle ORM, Sequelize, Mongoose
 - **AI & Integrations:** OpenAI API, Anthropic (Claude), LangChain, Vector Databases (pgvector), Embeddings, Third-Party APIs (Monobank, Nova Poshta, Stripe, SendGrid)
