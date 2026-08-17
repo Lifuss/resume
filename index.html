@@ -358,8 +358,8 @@
         height: 14px;
       }
 
-      /* Responsive */
-      @media (max-width: 768px) {
+      /* Responsive (Mobile/Small Screen View Only) */
+      @media screen and (max-width: 768px) {
         body {
           padding: 10px;
         }
@@ -390,17 +390,242 @@
         }
       }
 
+      /* Modal Dialog Styles */
+      .pdf-modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(17, 24, 39, 0.65);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      .pdf-modal-backdrop.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .pdf-modal-card {
+        background: #ffffff;
+        width: 100%;
+        max-width: 480px;
+        border-radius: 12px;
+        box-shadow:
+          0 20px 25px -5px rgba(0, 0, 0, 0.15),
+          0 10px 10px -5px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .pdf-modal-backdrop.active .pdf-modal-card {
+        transform: translateY(0) scale(1);
+      }
+
+      .pdf-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .pdf-modal-title-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .pdf-modal-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: #f3f4f6;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pdf-modal-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .pdf-modal-title {
+        font-family: "Lora", serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .pdf-modal-close {
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        color: var(--muted);
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 6px;
+        line-height: 1;
+        transition: var(--transition);
+      }
+
+      .pdf-modal-close:hover {
+        background: #f3f4f6;
+        color: var(--primary);
+      }
+
+      .pdf-modal-body {
+        padding: 20px 24px;
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+
+      .pdf-modal-subtitle {
+        margin-bottom: 16px;
+        line-height: 1.5;
+        color: var(--text);
+      }
+
+      .pdf-modal-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .pdf-modal-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: #f9fafb;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+      }
+
+      .pdf-step-num {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #e5e7eb;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .pdf-step-content {
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .pdf-step-content strong {
+        color: var(--primary);
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .pdf-step-content code {
+        background: #e5e7eb;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .pdf-step-content em {
+        color: var(--muted);
+        font-style: normal;
+        font-size: 0.82rem;
+      }
+
+      .pdf-modal-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        padding: 16px 24px;
+        background: #f9fafb;
+        border-top: 1px solid var(--border);
+      }
+
+      .modal-btn {
+        padding: 9px 18px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: var(--transition);
+      }
+
+      .modal-btn-secondary {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      .modal-btn-secondary:hover {
+        background: #ffffff;
+        color: var(--primary);
+        border-color: #cbd5e1;
+      }
+
+      .modal-btn-primary {
+        background: var(--accent);
+        border: 1px solid var(--accent);
+        color: #ffffff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+
+      .modal-btn-primary:hover {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
+      }
+
+      .modal-btn-primary svg {
+        width: 15px;
+        height: 15px;
+      }
+
       /* Print Stylesheet */
+      @page {
+        size: A4;
+        margin: 12mm 15mm;
+      }
+
       @media print {
+        html,
         body {
           background-color: #ffffff !important;
           color: #000000 !important;
           font-size: 9pt;
           line-height: 1.45;
-          padding: 0;
+          padding: 0 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
 
-        .print-btn-container {
+        .print-btn-container,
+        .pdf-modal-backdrop {
           display: none !important;
         }
 
@@ -410,6 +635,31 @@
           padding: 0 !important;
           margin: 0 !important;
           max-width: 100% !important;
+        }
+
+        .header-section {
+          margin-bottom: 20px !important;
+        }
+
+        .contact-info {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 6px 14px !important;
+          font-size: 8.5pt !important;
+        }
+
+        .contact-info span {
+          display: inline-flex !important;
+          align-items: center !important;
+        }
+
+        .contact-info span:not(:last-child)::after {
+          content: "•" !important;
+          display: inline-block !important;
+          margin-left: 14px !important;
+          color: #9ca3af !important;
         }
 
         .section-title {
@@ -435,6 +685,7 @@
         .skills-section,
         .footer-grid,
         .sub-project-item {
+          break-inside: avoid;
           page-break-inside: avoid;
         }
 
@@ -444,6 +695,8 @@
         }
 
         a {
+          color: var(--accent) !important;
+          text-decoration: none !important;
           border-bottom: none !important;
         }
 
@@ -464,89 +717,12 @@
           font-size: 0.8rem !important;
         }
       }
-
-      /* PDF Download Mode Styles (mirrors print styles for html2pdf conversion) */
-      body.pdf-mode-active {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        font-size: 9pt !important;
-        line-height: 1.45 !important;
-      }
-      body.pdf-mode-active .print-btn-container {
-        display: none !important;
-      }
-      body.pdf-mode-active .resume-container {
-        border: none !important;
-        box-shadow: none !important;
-        padding: 20px !important; /* Keep padding for aesthetic pdf edge spacing */
-        margin: 0 !important;
-        max-width: 100% !important;
-      }
-      body.pdf-mode-active .section-title {
-        font-size: 11pt !important;
-        margin-bottom: 10px !important;
-      }
-      body.pdf-mode-active section {
-        margin-bottom: 20px !important;
-      }
-      body.pdf-mode-active .experience-list {
-        gap: 18px !important;
-      }
-      body.pdf-mode-active .bullets-list li {
-        font-size: 9pt !important;
-        margin-bottom: 2px !important;
-      }
-      body.pdf-mode-active .experience-item,
-      body.pdf-mode-active .education-item,
-      body.pdf-mode-active .skills-section,
-      body.pdf-mode-active .footer-grid,
-      body.pdf-mode-active .sub-project-item {
-        page-break-inside: avoid !important;
-      }
-      body.pdf-mode-active .sub-projects-section {
-        margin-top: 8px !important;
-        gap: 8px !important;
-      }
-      body.pdf-mode-active a {
-        border-bottom: none !important;
-      }
-      body.pdf-mode-active .footer-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-      }
-      body.pdf-mode-active .sub-project-header {
-        display: block !important;
-        margin-bottom: 4px !important;
-      }
-      body.pdf-mode-active .sub-project-tech {
-        display: block !important;
-        margin-top: 2px !important;
-        font-size: 0.8rem !important;
-      }
     </style>
-    <!-- html2pdf library  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   </head>
   <body>
     <!-- Print & Download Buttons for Browser View -->
     <div class="print-btn-container">
-      <button class="print-btn" onclick="window.print()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2.5"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6.72 13.82l-.24 2.13A2 2 0 008.46 18.2h7.08a2 2 0 001.98-2.25l-.24-2.13M6.72 13.82A2.25 2.25 0 014.5 11.58V8.42A2.25 2.25 0 016.72 6.18h10.56A2.25 2.25 0 0119.5 8.42v3.16a2.25 2.25 0 01-2.22 2.24M6.72 13.82h10.56M12 3v3m0 0l-1.5-1.5M12 6l1.5-1.5"
-          />
-        </svg>
-        Print Resume
-      </button>
-      <button class="print-btn" onclick="downloadPDF()">
+      <button class="print-btn" onclick="openPDFModal()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -970,36 +1146,88 @@
       </div>
     </div>
 
+    <!-- PDF Export Instruction Modal -->
+    <div id="pdfModal" class="pdf-modal-backdrop" onclick="handleBackdropClick(event)">
+      <div class="pdf-modal-card" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+        <div class="pdf-modal-header">
+          <div class="pdf-modal-title-group">
+            <div class="pdf-modal-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 id="pdfModalTitle" class="pdf-modal-title">Експорт векторного PDF</h3>
+          </div>
+          <button class="pdf-modal-close" onclick="closePDFModal()" aria-label="Закрити">✕</button>
+        </div>
+        <div class="pdf-modal-body">
+          <p class="pdf-modal-subtitle">
+            Щоб отримати <strong>векторний PDF з активними посиланнями та живим текстом (для ATS)</strong>, у вікні збереження браузера:
+          </p>
+          <div class="pdf-modal-steps">
+            <div class="pdf-modal-step">
+              <span class="pdf-step-num">1</span>
+              <div class="pdf-step-content">
+                <strong>Призначення (Destination):</strong>
+                <div>Оберіть <code>Зберегти як PDF</code> (Save as PDF)<br><em>(Не обирайте «Microsoft Print to PDF»)</em></div>
+              </div>
+            </div>
+            <div class="pdf-modal-step">
+              <span class="pdf-step-num">2</span>
+              <div class="pdf-step-content">
+                <strong>Додаткові налаштування:</strong>
+                <div>Зніміть <code>Колонтитули</code> та увімкніть <code>Фонова графіка</code>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pdf-modal-footer">
+          <button class="modal-btn modal-btn-secondary" onclick="closePDFModal()">Скасувати</button>
+          <button class="modal-btn modal-btn-primary" onclick="proceedToPrint()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Продовжити до збереження
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script>
-      function downloadPDF() {
-        const element = document.querySelector(".resume-container");
-
-        // Add pdf-mode-active class to body to apply printer-friendly styles
-        document.body.classList.add("pdf-mode-active");
-
-        const opt = {
-          margin: [0.3, 0.3], // top/bottom, left/right margins in inches
-          filename: "Arsen_Hryhoriak_Resume.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: {
-            scale: 2.5,
-            useCORS: false,
-            allowTaint: true,
-            letterRendering: true,
-          },
-          jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
-          pagebreak: { mode: ["css", "legacy"] },
-        };
-
-        html2pdf()
-          .set(opt)
-          .from(element)
-          .save()
-          .then(() => {
-            // Restore original styling by removing the class
-            document.body.classList.remove("pdf-mode-active");
-          });
+      function openPDFModal() {
+        const modal = document.getElementById("pdfModal");
+        if (modal) {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
       }
+
+      function closePDFModal() {
+        const modal = document.getElementById("pdfModal");
+        if (modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      }
+
+      function handleBackdropClick(event) {
+        if (event.target === event.currentTarget) {
+          closePDFModal();
+        }
+      }
+
+      function proceedToPrint() {
+        closePDFModal();
+        setTimeout(() => {
+          window.print();
+        }, 150);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closePDFModal();
+        }
+      });
 
       function copyMarkdown(button) {
         const originalHTML = button.innerHTML;
